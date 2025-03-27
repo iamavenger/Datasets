@@ -33,11 +33,10 @@ test_data = test_data.reshape(test_data.shape[0], -1)
 
 
 knn = KNN(k=3)
-knn.fit(train_data[:100], train_labels[:100])
+knn.fit(train_data, train_labels)
 
-predicted_labels = knn.predict(test_data[:10])
-print(f"Predicted Label : {predicted_labels}")
-print(f"Actual Label : {test_labels[:10]}")
+predicted_labels = knn.predict(test_data)
 
-accuracy = np.mean(predicted_labels == test_labels[:10])
+
+accuracy = np.mean(predicted_labels == test_labels)
 print(f"KNN Accuracy: {accuracy * 100:.2f}% ")
